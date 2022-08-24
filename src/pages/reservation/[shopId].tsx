@@ -23,7 +23,7 @@ const ReservationShopPage = () => {
           {menus.map((menu) => (
             <li key={menu.id}>
               <Link href={`/reservation/${shopId}/${menu.id}`}>
-                <div className="flex flex-row gap-4 rounded-lg bg-green-100 p-2">
+                <div className="flex cursor-pointer flex-row gap-4 rounded-lg bg-green-100 p-2 transition duration-200 hover:-translate-y-1 hover:shadow-md">
                   <Image
                     src={`https://picsum.photos/id/${menu.id}/128/128`}
                     alt="product"

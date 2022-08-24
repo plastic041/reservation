@@ -4,6 +4,7 @@ import { useState } from "react";
 import { number } from "zod";
 import ShopHeader from "~/components/shop-header";
 import { trpc } from "~/utils/trpc";
+import { motion } from "framer-motion";
 
 const ReservationMenuPage = () => {
   const [selectedOptionId, setSelectedOptionId] = useState<number | null>(null);
@@ -51,7 +52,7 @@ const ReservationMenuPage = () => {
       : null;
 
   return (
-    <div className="container mx-auto flex h-full flex-col gap-4 p-4">
+    <div className="container mx-auto flex h-full flex-col gap-4 p-4 lg:px-80">
       <ShopHeader shop={shop} to={`/reservation/${shopId}`} />
       <main className="flex h-full flex-col justify-between">
         <section className="flex flex-col gap-4">
@@ -72,7 +73,8 @@ const ReservationMenuPage = () => {
                 <li key={option.id}>
                   <div
                     onClick={() => setSelectedOptionId(option.id)}
-                    className={`flex flex-row justify-between transition 
+                    className={`flex cursor-pointer flex-row justify-between transition
+                    hover:text-gray-400
                      ${
                        option.id === selectedOptionId
                          ? "text-gray-700"
@@ -95,10 +97,15 @@ const ReservationMenuPage = () => {
             </ul>
           </section>
           {selectedOptionId !== null && <hr />}
-          {selectedOptionId === null ? (
-            <section className="-translate-y-4 opacity-0 transition-all duration-300" />
-          ) : (
-            <section className="flex translate-y-0 flex-col gap-2 opacity-100 transition-all">
+          {selectedOptionId !== null && (
+            // <section className="-translate-y-4 opacity-0 transition-all duration-300" />
+            // ) : (
+            <motion.section
+              className="flex flex-col gap-2"
+              initial={{ opacity: 0, y: -4 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
               <span className="text-2xl font-bold">날짜</span>
               <ul className="flex flex-col gap-2 text-gray-300">
                 {[
@@ -109,7 +116,7 @@ const ReservationMenuPage = () => {
                   <li
                     key={`${year}${month}${day}`}
                     onClick={() => setSelectedDate({ year, month, day })}
-                    className={`flex flex-row gap-2 transition ${
+                    className={`flex cursor-pointer flex-row gap-2 transition hover:text-gray-400 ${
                       selectedDate?.year === year &&
                       selectedDate?.month === month &&
                       selectedDate?.day === day
@@ -129,13 +136,18 @@ const ReservationMenuPage = () => {
                   </li>
                 ))}
               </ul>
-            </section>
+            </motion.section>
           )}
           {selectedDate !== null && <hr />}
-          {selectedDate === null ? (
-            <section className="-translate-y-4 opacity-0 transition-all duration-300" />
-          ) : (
-            <section className="flex translate-y-0 flex-col gap-2 opacity-100 transition-all">
+          {selectedDate !== null && (
+            //   <section className="-translate-y-4 opacity-0 transition-all duration-300" />
+            // ) : (
+            <motion.section
+              className="flex flex-col gap-2"
+              initial={{ opacity: 0, y: -4 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
               <span className="text-2xl font-bold">시각</span>
               <ul className="flex flex-col gap-2 text-gray-300">
                 {[
@@ -146,7 +158,7 @@ const ReservationMenuPage = () => {
                   <li
                     key={hour}
                     onClick={() => setSelectedTime({ hour, minute })}
-                    className={`flex flex-row gap-2 transition ${
+                    className={`flex cursor-pointer flex-row gap-2 transition hover:text-gray-400 ${
                       selectedTime?.hour === hour &&
                       selectedTime?.minute === minute
                         ? "text-gray-700"
@@ -165,7 +177,7 @@ const ReservationMenuPage = () => {
                   </li>
                 ))}
               </ul>
-            </section>
+            </motion.section>
           )}
         </section>
         <section className="shadow-t -m-4 flex flex-col gap-4 rounded p-4">
@@ -192,7 +204,8 @@ const ReservationMenuPage = () => {
               <dt>일시</dt>
               {selectedDateTime ? (
                 <dd className="tabular-nums">
-                  {selectedDateTime.format("YYYY년 M월 DD일 H:mm")}
+                  {selectedDateTime.format("YYYY년 M월 DD일 H:mm")} ~{" "}
+                  {selectedDateTime.add(2, "hour").format("H:mm")}
                 </dd>
               ) : (
                 <dd>일자를 선택해주세요.</dd>

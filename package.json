@@ -20,6 +20,7 @@
     "@trpc/react": "^9.27.0",
     "@trpc/server": "^9.27.0",
     "dayjs": "^1.11.5",
+    "framer-motion": "^7.2.1",
     "next": "12.2.3",
     "next-auth": "^4.10.3",
     "react": "18.2.0",
