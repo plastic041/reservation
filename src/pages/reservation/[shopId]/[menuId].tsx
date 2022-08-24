@@ -207,8 +207,10 @@ const ReservationMenuPage = () => {
                   {selectedDateTime.format("YYYY년 M월 DD일 H:mm")} ~{" "}
                   {selectedDateTime.add(2, "hour").format("H:mm")}
                 </dd>
+              ) : selectedDate ? (
+                <dd>시각을 선택해주세요.</dd>
               ) : (
-                <dd>일자를 선택해주세요.</dd>
+                <dd>날짜를 선택해주세요.</dd>
               )}
             </div>
           </dl>
