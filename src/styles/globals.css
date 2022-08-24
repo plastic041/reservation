@@ -1,7 +1,36 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.5/dist/web/static/pretendard-dynamic-subset.css");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 [data-state="open"] .chevron {
   @apply rotate-180;
+}
+
+html,
+body,
+#__next {
+  height: 100%;
+}
+
+.shadow-t {
+  --shadow-color: 0deg 0% 63%;
+  --shadow-elevation-low: 0px -0.3px 0.3px hsl(var(--shadow-color) / 0.34),
+    0px -0.6px 0.7px -1.2px hsl(var(--shadow-color) / 0.34),
+    0px -1.4px 1.6px -2.5px hsl(var(--shadow-color) / 0.34);
+  --shadow-elevation-medium: 0px -0.3px 0.3px hsl(var(--shadow-color) / 0.36),
+    0px -1.1px 1.2px -0.8px hsl(var(--shadow-color) / 0.36),
+    0px -2.8px 3.1px -1.7px hsl(var(--shadow-color) / 0.36),
+    -0.1px -6.8px 7.7px -2.5px hsl(var(--shadow-color) / 0.36);
+  --shadow-elevation-high: 0px -0.3px 0.3px hsl(var(--shadow-color) / 0.34),
+    0px -2px 2.3px -0.4px hsl(var(--shadow-color) / 0.34),
+    -0.1px -3.7px 4.2px -0.7px hsl(var(--shadow-color) / 0.34),
+    -0.1px -6px 6.8px -1.1px hsl(var(--shadow-color) / 0.34),
+    -0.2px -9.6px 10.8px -1.4px hsl(var(--shadow-color) / 0.34),
+    -0.2px -15.1px 17px -1.8px hsl(var(--shadow-color) / 0.34),
+    -0.4px -22.9px 25.8px -2.1px hsl(var(--shadow-color) / 0.34),
+    -0.5px -33.8px 38px -2.5px hsl(var(--shadow-color) / 0.34);
+
+  box-shadow: var(--shadow-elevation-medium);
 }
