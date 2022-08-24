@@ -51,9 +51,9 @@ const ReservationMenuPage = () => {
       : null;
 
   return (
-    <div className="container mx-auto flex flex-col h-full p-4 gap-4">
+    <div className="container mx-auto flex h-full flex-col gap-4 p-4">
       <ShopHeader shop={shop} to={`/reservation/${shopId}`} />
-      <main className="flex flex-col justify-between h-full">
+      <main className="flex h-full flex-col justify-between">
         <section className="flex flex-col gap-4">
           <div className="flex flex-col gap-2">
             <div className="flex flex-row items-center justify-between font-bold">
@@ -96,11 +96,11 @@ const ReservationMenuPage = () => {
           </section>
           {selectedOptionId !== null && <hr />}
           {selectedOptionId === null ? (
-            <section className="transition-all duration-300 -translate-y-4 opacity-0" />
+            <section className="-translate-y-4 opacity-0 transition-all duration-300" />
           ) : (
-            <section className="flex flex-col gap-2 transition-all translate-y-0 opacity-100">
+            <section className="flex translate-y-0 flex-col gap-2 opacity-100 transition-all">
               <span className="text-2xl font-bold">날짜</span>
-              <ul className="flex flex-col text-gray-300 gap-2">
+              <ul className="flex flex-col gap-2 text-gray-300">
                 {[
                   { year: 2022, month: 8, day: 24 },
                   { year: 2022, month: 8, day: 25 },
@@ -133,11 +133,11 @@ const ReservationMenuPage = () => {
           )}
           {selectedDate !== null && <hr />}
           {selectedDate === null ? (
-            <section className="transition-all duration-300 -translate-y-4 opacity-0" />
+            <section className="-translate-y-4 opacity-0 transition-all duration-300" />
           ) : (
-            <section className="flex flex-col gap-2 transition-all translate-y-0 opacity-100">
+            <section className="flex translate-y-0 flex-col gap-2 opacity-100 transition-all">
               <span className="text-2xl font-bold">시각</span>
-              <ul className="flex flex-col text-gray-300 gap-2">
+              <ul className="flex flex-col gap-2 text-gray-300">
                 {[
                   { hour: 12, minute: 0 },
                   { hour: 14, minute: 0 },
@@ -168,7 +168,7 @@ const ReservationMenuPage = () => {
             </section>
           )}
         </section>
-        <section className="flex flex-col gap-4 -m-4 p-4 shadow-t rounded">
+        <section className="shadow-t -m-4 flex flex-col gap-4 rounded p-4">
           <dl className="flex flex-col gap-1">
             <div
               className={`flex flex-row justify-between text-xl font-bold transition ${
@@ -200,7 +200,7 @@ const ReservationMenuPage = () => {
             </div>
           </dl>
           <button
-            className="text-white bg-violet-500 disabled:bg-violet-200 py-2 rounded-md transition"
+            className="rounded-md bg-violet-500 py-2 text-white transition disabled:bg-violet-200"
             disabled={
               !selectedDate || !selectedTime || selectedOptionId === null
             }

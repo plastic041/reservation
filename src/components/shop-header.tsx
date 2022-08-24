@@ -8,7 +8,7 @@ type ShopHeaderProps = {
 };
 const ShopHeader = ({ shop, to }: ShopHeaderProps) => {
   return (
-    <header className="flex flex-row justify-between items-center">
+    <header className="flex flex-row items-center justify-between">
       <nav>
         <Link href={to}>
           <a>

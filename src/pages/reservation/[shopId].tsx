@@ -16,14 +16,14 @@ const ReservationShopPage = () => {
   }
 
   return (
-    <div className="container mx-auto p-4 gap-4 flex flex-col">
+    <div className="container mx-auto flex flex-col gap-4 p-4">
       <ShopHeader shop={shop} to="/" />
       <main>
         <ul className="flex flex-col gap-4">
           {menus.map((menu) => (
             <li key={menu.id}>
               <Link href={`/reservation/${shopId}/${menu.id}`}>
-                <div className="flex flex-row gap-4 p-2 bg-green-100 rounded-lg">
+                <div className="flex flex-row gap-4 rounded-lg bg-green-100 p-2">
                   <Image
                     src={`https://picsum.photos/id/${menu.id}/128/128`}
                     alt="product"
@@ -32,8 +32,8 @@ const ReservationShopPage = () => {
                     layout="fixed"
                     className="rounded-md"
                   />
-                  <div className="flex flex-col flex-1 justify-between">
-                    <span className="font-bold text-lg">{menu.name}</span>
+                  <div className="flex flex-1 flex-col justify-between">
+                    <span className="text-lg font-bold">{menu.name}</span>
                     <span>{menu.price.toLocaleString()}원</span>
                   </div>
                 </div>

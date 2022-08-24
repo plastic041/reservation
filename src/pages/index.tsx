@@ -9,7 +9,7 @@ const ShopItem = ({ shop }: ShopItemProps) => {
   const url = `/reservation/${shop.id}`;
   return (
     <Link href={url}>
-      <div className="flex flex-row gap-2 shadow p-4 bg-white rounded">
+      <div className="flex cursor-pointer flex-row gap-2 rounded bg-gray-50 p-4 shadow transition duration-200 hover:-translate-y-1 hover:shadow-lg">
         <a className="text-xl">{shop.name}</a>
       </div>
     </Link>
@@ -24,7 +24,7 @@ const Home = () => {
   }
 
   return (
-    <main className="container flex flex-col mx-auto">
+    <main className="container mx-auto flex flex-col">
       <ul className="flex flex-col gap-4 p-4">
         {shops.map((shop) => (
           <li key={shop.id}>
