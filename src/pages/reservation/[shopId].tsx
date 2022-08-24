@@ -16,7 +16,7 @@ const ReservationShopPage = () => {
   }
 
   return (
-    <div className="container mx-auto flex flex-col gap-4 p-4">
+    <div className="container mx-auto flex flex-col gap-4 p-4 lg:px-80">
       <ShopHeader shop={shop} to="/" />
       <main>
         <ul className="flex flex-col gap-4">

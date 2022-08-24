@@ -24,7 +24,7 @@ const Home = () => {
   }
 
   return (
-    <main className="container mx-auto flex flex-col">
+    <main className="container mx-auto flex flex-col lg:px-80">
       <ul className="flex flex-col gap-4 p-4">
         {shops.map((shop) => (
           <li key={shop.id}>
