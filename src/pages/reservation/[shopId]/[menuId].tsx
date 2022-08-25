@@ -6,8 +6,6 @@ import {
   selectedDateAtom,
   selectedDateTimeAtom,
   selectedOptionIdAtom,
-  selectedPeopleAtom,
-  selectedTimeAtom,
 } from "~/stores/reservation";
 import OptionSection from "~/components/option-section";
 import DateSection from "~/components/date-section";
@@ -21,9 +19,7 @@ import "simplebar-react/dist/simplebar.min.css";
 const ReservationMenuPage = () => {
   const [selectedOptionId] = useAtom(selectedOptionIdAtom);
   const [selectedDate] = useAtom(selectedDateAtom);
-  const [selectedTime] = useAtom(selectedTimeAtom);
-  const [selectedDateTime, setSelectedDateTime] = useAtom(selectedDateTimeAtom);
-  const [selectedPeople, setSelectedPeople] = useAtom(selectedPeopleAtom);
+  const [selectedDateTime] = useAtom(selectedDateTimeAtom);
 
   const router = useRouter();
   const shopId = Number(router.query.shopId as string);
